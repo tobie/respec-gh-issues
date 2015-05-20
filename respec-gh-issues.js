@@ -16,7 +16,7 @@
             console.log("To use gh-issues, respecConfig.issuesAPI must point to the GH API for your repo's issue tracker.");
             return;
         }
-        $.ajax(respecConfig.issueAPI).then(function(issues) {
+        $.ajax(respecConfig.issueAPI.replace(/\/$/, "")).then(function(issues) {
             // index issues by their number.
             issues = issues.reduce(function(obj, issue) {
                 obj[issue.number] = issue;
